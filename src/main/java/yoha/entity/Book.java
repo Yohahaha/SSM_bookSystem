@@ -9,8 +9,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(long bookId, String name, int number, String detail) {
-        this.bookId = bookId;
+    public Book(String name, int number, String detail) {
         this.name = name;
         this.number = number;
         this.detail = detail;

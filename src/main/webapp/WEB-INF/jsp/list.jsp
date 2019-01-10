@@ -13,11 +13,20 @@
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    Yoha
+                    <small>图书管理系统 - by ssm基础框架</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="<%=appPath%>/book/list">首页</a></li>
                 <li><a href="<%=appPath%>/book/detail/1000">图书具体信息</a></li>
-                <li><a href="<%=appPath%>/add.jsp">添加图书信息</a></li>
-                <li><a href="<%=appPath%>/appoint.jsp">预约图书</a></li>
+                <li><a href="<%=appPath%>/book/addPage">添加图书信息</a></li>
                 <li class="disabled"><a href="#">信息</a></li>
             </ul>
         </div>
@@ -43,23 +52,30 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="book" items="${requestScope.get('list')}" varStatus="status">
+                <c:forEach var="book" items="${bookList}" varStatus="status">
                     <tr>
                         <td>${book.bookId}</td>
                         <td>${book.name}</td>
                         <td>${book.number}</td>
                         <td>
                             <a href="<%=appPath%>/book/detail/${book.bookId}">详情</a> |
-                            <a href="<%=appPath%>/book/del/${book.bookId}">删除</a>
+                            <a onclick="deleteBook()" href="/book/delete/${book.bookId}">删除</a>
                         </td>
 
                     </tr>
                 </c:forEach>
+
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function deleteBook() {
+        alert("删除成功");
+        window.location.reload()
+    }
+</script>
 
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
 <script src="https://code.jquery.com/jquery.js"></script>

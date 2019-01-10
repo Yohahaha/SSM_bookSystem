@@ -14,7 +14,7 @@ public class BookServiceTest extends BaseTest {
     @Test
     public void TestAdd() {
         Book book = new Book();
-        book.setName("stranger");
+        book.setName("中文");
         book.setNumber(2);
         book.setDetail("new book");
         bookService.addBook(book);
